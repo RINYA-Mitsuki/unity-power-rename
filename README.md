@@ -43,3 +43,7 @@ python scripts/package.py Packages/com.mitsuboshi-studio.unity-power-rename --re
 ```
 
 Unity コンパイル・動作検証は別途必要です。上記 CI はパッケージ形式と配布物を検証します。
+
+## 検証状況
+
+公開 ZIP と Listing の整合および C# コンパイルを確認済みです。VCC GUI と Unity Editor 内の実動作は未検証です。詳細は [検証結果](VERIFICATION.md) を参照してください。
