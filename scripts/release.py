@@ -4,7 +4,14 @@ from pathlib import Path
 from package import build
 
 def gh(*args, **kwargs):
-    return subprocess.run(['gh',*args],check=True,capture_output=True,**kwargs).stdout
+    result=subprocess.run(['gh',*args],capture_output=True,**kwargs)
+    if result.returncode:
+        raise RuntimeError(result.stderr.decode('utf-8',errors='replace'))
+    return result.stdout
+
+def find_release(repo,tag):
+    pages=json.loads(gh('api','--paginate','--slurp',f'repos/{repo}/releases?per_page=100'))
+    return next((r for page in pages for r in page if r['tag_name']==tag),None)
 
 def main():
     repo=os.environ['GITHUB_REPOSITORY']
@@ -20,12 +27,14 @@ def main():
         subprocess.run(['git','fetch','origin','tag',tag],check=True)
         tagged=subprocess.check_output(['git','rev-parse',tag+'^{commit}'],text=True).strip()
         if tagged!=head: raise ValueError('Existing version tag points at a different commit; bump version')
-    releases=json.loads(gh('api','--paginate','--slurp',f'repos/{repo}/releases?per_page=100'))
-    release=next((r for page in releases for r in page if r['tag_name']==tag),None)
+    release=find_release(repo,tag)
     if release is None:
         gh('release','create',tag,'--repo',repo,'--target',head,'--draft','--title',f"Unity Power Rename {m['version']}",
            '--notes-file',str(root/'CHANGELOG.md'))
-        release=json.loads(gh('api',f'repos/{repo}/releases/tags/{tag}'))
+        release=find_release(repo,tag)
+        if release is None: raise ValueError('Created draft release was not returned by API')
+    if release['draft'] and not exact:
+        gh('release','edit',tag,'--repo',repo,'--target',head)
     assets={a['name']:a for a in release['assets']}
     for path in (archive,Path('dist/package.json'),Path('dist/SHA256SUMS')):
         if path.name in assets:
