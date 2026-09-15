@@ -30,16 +30,3 @@ Unity 2022.3 向け。VRChat SDK は不要です。
 動作・品質・特定環境への適合性は保証しません。サポート、不具合修正、機能追加、問い合わせへの回答をお約束するものではなく、**利用したことによる苦情は一切受け付けません**。
 
 本ツールは MIT ライセンスで提供します。無保証・責任制限の条件は [LICENSE.md](LICENSE.md) を参照してください。
-
-## 開発・リリース
-
-標準仕様は共通リポジトリ `vpm-repository/docs/STANDARD.md` を参照してください。
-`package.json` の version と url、CHANGELOG を更新し、main へ反映後に Actions の **Release VPM package** を手動実行するか、対応する `v{version}` タグを push します。
-ZIP と manifest を作成して Release に添付します。同じ版のアセットは上書きできません。共通 Listing は毎時17分（UTC）に確認するため、即時反映には共通リポジトリの **Build VPM listing** を手動実行します。
-
-```sh
-python -m unittest discover -s tests -v
-python scripts/package.py Packages/com.mitsuboshi-studio.unity-power-rename --repository RINYA-Mitsuki/unity-power-rename
-```
-
-Unity コンパイル・動作検証は別途必要です。上記 CI はパッケージ形式と配布物を検証します。
