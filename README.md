@@ -2,10 +2,13 @@
 
 Mitsuboshi_Studio の Unity Editor 用アセット一括リネームツール。従来の v7 を VPM パッケージに移行した試験版です。
 
-## 導入
-共通 Listing: https://rinya-mitsuki.github.io/vpm-repository/index.json
+## VCCに追加
 
-VCC の Settings → Packages → Add Repository で上記 URL を追加し、プロジェクトの Manage Project から Unity Power Rename を追加します。beta 版は VCC の Show Pre-Release Packages を有効にしてください。公開状態と検証結果はリポジトリの README を確認してください。
+### [▶ クリックしてVCCを開く](https://rinya-mitsuki.github.io/vpm-repository/add.html)
+
+リンクをクリックするとVCCが開きます。ブラウザーの確認で「開く」を選び、VCC内でリポジトリの追加を確定してください。自動で開かない場合は、リンク先の「VCCを開いて追加」を押してください。
+
+登録後はプロジェクトの Manage Project から Unity Power Rename を追加できます。beta版の表示には **Show Pre-Release Packages** を有効にしてください。
 
 ## 旧版からの移行
 導入前にプロジェクトをバックアップし、既存の UnityPowerRenameWindow_v7.cs（または同じクラスを定義する旧版）と対応する .meta をプロジェクト外へ退避してください。VPM 版と同時に残すとメニューやクラスが重複します。共有の Mitsuboshi_Studio/Editor フォルダー全体を削除しないでください。このパッケージは旧ファイルを自動削除しません。
