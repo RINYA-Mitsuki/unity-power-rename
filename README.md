@@ -1,6 +1,6 @@
 # Unity Power Rename
 
-Mitsuboshi_Studio の Unity Editor 用アセット一括リネームツール。従来の v7 を VPM パッケージに移行した試験版です。
+Mitsuboshi_Studio の Unity Editor 用アセット一括リネームツール。従来の v7 を VPM パッケージに移行した正式版1.0.0です。
 
 ## VCCに追加
 
@@ -8,7 +8,7 @@ Mitsuboshi_Studio の Unity Editor 用アセット一括リネームツール。
 
 リンクをクリックするとVCCが開きます。ブラウザーの確認で「開く」を選び、VCC内でリポジトリの追加を確定してください。自動で開かない場合は、リンク先の「VCCを開いて追加」を押してください。
 
-登録後はプロジェクトの Manage Project から Unity Power Rename を追加できます。beta版の表示には **Show Pre-Release Packages** を有効にしてください。
+登録後はプロジェクトの Manage Project から Unity Power Rename を追加できます。正式版のため、試験版表示の設定は不要です。
 
 ## 旧版からの移行
 導入前にプロジェクトをバックアップし、既存の UnityPowerRenameWindow_v7.cs（または同じクラスを定義する旧版）と対応する .meta をプロジェクト外へ退避してください。VPM 版と同時に残すとメニューやクラスが重複します。共有の Mitsuboshi_Studio/Editor フォルダー全体を削除しないでください。このパッケージは旧ファイルを自動削除しません。
@@ -49,4 +49,8 @@ Unity コンパイル・動作検証は別途必要です。上記 CI はパッ�
 
 ## 検証状況
 
-公開 ZIP と Listing の整合および C# コンパイルを確認済みです。VCC GUI と Unity Editor 内の実動作は未検証です。詳細は [検証結果](VERIFICATION.md) を参照してください。
+公開 ZIP と Listing の整合および C# コンパイルを確認済みです。VCCからの起動とUnity Editor内の動作はユーザーによる確認済みです。詳細は [検証結果](VERIFICATION.md) を参照してください。
+## AIによる制作について
+
+ツール本体、VPMパッケージ化、配布用リポジトリおよび自動化環境は、すべてAIを利用して制作しています。内容を確認したうえで、ご自身の判断と責任で使用してください。
+

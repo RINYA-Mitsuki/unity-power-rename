@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.0
+- ユーザーによる起動・動作確認を受け、正式版へ移行。
+- ソースコードと既存GUIDはbeta.1から変更なし。
+
 ## 1.0.0-beta.1
 - UnityPowerRenameWindow_v7.cs の内容を変更せず、VPM パッケージへ移行。
 - Editor 限定の assembly、固定ファイル名、manifest と配布自動化を追加。

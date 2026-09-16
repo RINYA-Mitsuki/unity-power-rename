@@ -1,6 +1,6 @@
 # Unity Power Rename
 
-Mitsuboshi_Studio の Unity Editor 用アセット一括リネームツール。従来の v7 を VPM パッケージに移行した試験版です。
+Mitsuboshi_Studio の Unity Editor 用アセット一括リネームツール。従来の v7 を VPM パッケージに移行した正式版1.0.0です。
 
 ## 導入
 共通 Listing: https://rinya-mitsuki.github.io/vpm-repository/index.json
@@ -30,3 +30,7 @@ Unity 2022.3 向け。VRChat SDK は不要です。
 動作・品質・特定環境への適合性は保証しません。サポート、不具合修正、機能追加、問い合わせへの回答をお約束するものではなく、**利用したことによる苦情は一切受け付けません**。
 
 本ツールは MIT ライセンスで提供します。無保証・責任制限の条件は [LICENSE.md](LICENSE.md) を参照してください。
+## AIによる制作について
+
+ツール本体、VPMパッケージ化、配布用リポジトリおよび自動化環境は、すべてAIを利用して制作しています。内容を確認したうえで、ご自身の判断と責任で使用してください。
+

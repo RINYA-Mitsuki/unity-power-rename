@@ -29,7 +29,7 @@ def main():
         if tagged!=head: raise ValueError('Existing version tag points at a different commit; bump version')
     release=find_release(repo,tag)
     if release is None:
-        gh('release','create',tag,'--repo',repo,'--target',head,'--draft','--title',f"Unity Power Rename {m['version']}",
+        gh('release','create',tag,'--repo',repo,'--target',head,'--draft','--title',f"{m['displayName']} {m['version']}",
            '--notes-file',str(root/'CHANGELOG.md'))
         release=find_release(repo,tag)
         if release is None: raise ValueError('Created draft release was not returned by API')
