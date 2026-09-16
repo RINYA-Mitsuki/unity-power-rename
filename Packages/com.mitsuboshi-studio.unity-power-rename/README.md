@@ -1,24 +1,25 @@
 # Unity Power Rename
 
-Mitsuboshi_Studio の Unity Editor 用アセット一括リネームツール。従来の v7 を VPM パッケージに移行した正式版1.0.0です。
+Mitsuboshi_Studio の Unity Editor 用一括リネームツール。単体スクリプト v9 を収録した正式版1.1.0です。Project内のアセットとHierarchy上のGameObjectを切り替えて処理できます。
 
 ## 導入
 共通 Listing: https://rinya-mitsuki.github.io/vpm-repository/index.json
 
-VCC の Settings → Packages → Add Repository で上記 URL を追加し、プロジェクトの Manage Project から Unity Power Rename を追加します。beta 版は VCC の Show Pre-Release Packages を有効にしてください。公開状態と検証結果はリポジトリの README を確認してください。
+VCC の Settings → Packages → Add Repository で上記 URL を追加し、プロジェクトの Manage Project から Unity Power Rename を追加します。公開状態と検証結果はリポジトリの README を確認してください。
 
 ## 旧版からの移行
-導入前にプロジェクトをバックアップし、既存の UnityPowerRenameWindow_v7.cs（または同じクラスを定義する旧版）と対応する .meta をプロジェクト外へ退避してください。VPM 版と同時に残すとメニューやクラスが重複します。共有の Mitsuboshi_Studio/Editor フォルダー全体を削除しないでください。このパッケージは旧ファイルを自動削除しません。
+導入前にプロジェクトをバックアップし、既存の `UnityPowerRenameWindow_v7.cs`、`UnityPowerRenameWindow_v9.cs`、または同じクラスを定義する旧版と対応する .meta をプロジェクト外へ退避してください。VPM 版と同時に残すとメニューやクラスが重複します。共有の Mitsuboshi_Studio/Editor フォルダー全体を削除しないでください。このパッケージは旧ファイルを自動削除しません。
 
 ## 使い方
-Project で対象アセット／フォルダーを選択し、Tools → Mitsuboshi_Studio → Unity Power Rename を開きます。検索・置換、接頭辞／接尾辞、連番を設定し、プレビューを確認して実行します。
+Tools → Mitsuboshi_Studio → Unity Power Rename を開き、AssetまたはHierarchy GameObjectモードを選択します。検索・置換、接頭辞／接尾辞、連番を設定し、プレビューを確認して実行します。
 
 - 大文字・小文字を区別しない通常検索に対応。正規表現はありません。
 - 連番を有効にすると、置換／接頭辞／接尾辞に {n} を使用できます。
 - 再帰取得と種別フィルターに対応。フィルターは初期状態で閉じています。
 - プレビューはファイル名のみ、パスはツールチップに表示します。
 - AssetDatabase.RenameAsset を使用し、拡張子とアセット GUID を維持します。
-- 通常の Unity Undo には非対応です。エラー時は可能な範囲でロールバックを試みます。
+- Hierarchyでは選択したGameObjectと子階層を、非アクティブを含めて再帰取得できます。
+- Hierarchyの一括変更は1回のUndo/Redoで操作できます。Asset変更はUndo非対応で、エラー時は可能な範囲でロールバックを試みます。
 - 親フォルダーと配下アセットの同時変更は拒否します。
 
 Unity 2022.3 向け。VRChat SDK は不要です。

@@ -16,7 +16,7 @@ class PackageTests(unittest.TestCase):
             self.assertEqual(h,build(root,b,'RINYA-Mitsuki/unity-power-rename')[2])
             with zipfile.ZipFile(z) as archive:
                 self.assertEqual(json.loads(archive.read('package.json')),m)
-                self.assertIn('Editor/UnityPowerRenameWindow.cs',archive.namelist())
+                self.assertIn('Editor/UnityPowerRenameWindow_v9.cs',archive.namelist())
                 self.assertFalse(any(n.startswith(('Packages/','.github/','scripts/')) for n in archive.namelist()))
 
 if __name__=='__main__': unittest.main()
